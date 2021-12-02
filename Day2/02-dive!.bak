@@ -1,0 +1,22 @@
+#lang typed/racket
+
+(define-type Direction (U 'up 'down 'forward))
+
+(struct Instruction ([dir : Direction] [dist : Real])
+  #:transparent)
+
+(struct Posn ([x : Real] [y : Real])
+  #:transparent)
+
+(: t (Listof Instruction))
+(define t (list (Instruction 'forward 5)
+                (Instruction 'down 5)
+                (Instruction 'forward 8)
+                (Instruction 'up 3)
+                (Instruction 'down 8)
+                (Instruction 'forward 2)))
+
+(: dive (-> (Listof Instruction) Real))
+
+
+
